@@ -2,6 +2,7 @@ package lt.andrius.World.bootstrap;
 
 
 import lt.andrius.World.repository.IncomeRepository;
+import lt.andrius.World.repository.model.Income;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
 
         incomeRepository.findAll().forEach(System.out::println);
         System.out.println("\n==================\n");
