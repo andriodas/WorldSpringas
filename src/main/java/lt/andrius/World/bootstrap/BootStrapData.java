@@ -17,7 +17,7 @@ public class BootStrapData implements CommandLineRunner {
 
         incomeRepository.findAll().forEach(System.out::println);
         System.out.println("\n==================\n");
-        System.out.println(incomeRepository.findByIncomeId(1));
+        System.out.println(incomeRepository.findById(1));
 
     }
 }

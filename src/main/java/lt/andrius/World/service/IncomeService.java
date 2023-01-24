@@ -22,12 +22,12 @@ public class IncomeService {
     }
 
     public Income getIncomByAmount(double amount) {
-        return incomeRepository.findByIncomeAmount(amount).get();
+        return incomeRepository.findByAmount(amount).get();
 
     }
 
     public List<Income> getIncomeByDate(String date) {
-        return (List<Income>) incomeRepository.findByIncomeDate(date);
+        return (List<Income>) incomeRepository.findByDate(date);
     }
 
 }

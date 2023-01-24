@@ -7,10 +7,10 @@ import java.util.Optional;
 
 public interface IncomeRepository extends CrudRepository <Income, Integer> {
 
-        Optional<Income> findByIncomeId(int id);
+        Optional<Income> findById(int id);
 
-        Optional<Income> findByIncomeAmount(double amount);
+        Optional<Income> findByAmount(double amount);
 
-        Iterable<Income> findByIncomeDate(String date);
+        Iterable<Income> findByDate(String date);
 
     }
