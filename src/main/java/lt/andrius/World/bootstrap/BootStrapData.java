@@ -1,6 +1,7 @@
 package lt.andrius.World.bootstrap;
 
-import lt.andrius.World.repository.CityRepository;
+
+import lt.andrius.World.repository.IncomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -8,20 +9,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class BootStrapData implements CommandLineRunner {
     @Autowired
-    private CityRepository cityRepository;
+    private IncomeRepository incomeRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
 
-        cityRepository.findAll().forEach(System.out::println);
+        incomeRepository.findAll().forEach(System.out::println);
         System.out.println("\n==================\n");
-        System.out.println(cityRepository.findById(112));
+        System.out.println(incomeRepository.findByIncomeId(1));
 
-        System.out.println("\n==================\n");
-        cityRepository.findByNameLike("%new%").forEach(System.out::println);
-
-        System.out.println("\n==================\n");
-        cityRepository.getCityNameLike("%new%").forEach(System.out::println);
     }
 }
-
