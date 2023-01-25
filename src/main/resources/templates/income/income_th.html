@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/income/basic.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/income/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/styles/income/basic.css"/>
+    <link rel="stylesheet" href="/static/styles/income/index.css"/>
+</head>
+<body>
+<div class="income" th:object="${key_income}">
+    <div class="label"><p>id: </p></div>
+    <div class="income-data">
+        <p th:text="${key_income.id}"> Some text here</p>
+    </div>
+    <div class="label"><p>Amount: </p></div>
+    <div class="income-data">
+        <p th:text="${key_income.amount}"> Some text here</p>
+    </div>
+    <div class="label"><p>Date: </p></div>
+    <div class="income-data">
+        <p th:text="${key_income.date}"> Some text here</p>
+</div>
+</body>
+</html>
