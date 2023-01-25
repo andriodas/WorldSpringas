@@ -1,5 +1,7 @@
 
-CREATE SCHEMA  budgetplanner;
+-- CREATE SCHEMA  budgetplanner;
+
+USE budgetplanner;
 
 SELECT * FROM budgetplanner.income;
 insert into income (id, amount, date) values (1, 572.14, '2022-05-05');
