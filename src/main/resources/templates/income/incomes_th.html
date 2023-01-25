@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/incomes/basic.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/incomes/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/styles/incomes/basic.css">
+    <link rel="stylesheet" href="/static/styles/incomes/index.css">
+</head>
+
+<body>
+<table id="incomeDataTable" class="table">
+    <tr>
+        <th class="th">Id</th>
+        <th class="th">Amount &euro;</th>
+        <th class="th">Date</th>
+    </tr>
+    <tr th:each="income : ${key_income_list}">
+        <td class="td" th:text="${income.id}"></td>
+        <td class="td" th:text="${income.amount}"></td>
+        <td class="td" th:text="${income.date}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

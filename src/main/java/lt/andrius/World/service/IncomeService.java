@@ -21,7 +21,7 @@ public class IncomeService {
         return incomeRepository.findById(incomeId).get();
     }
 
-    public Income getIncomByAmount(double amount) {
+    public Income getIncomeByAmount(double amount) {
         return incomeRepository.findByAmount(amount).get();
 
     }

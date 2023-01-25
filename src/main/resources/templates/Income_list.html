@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<table id="Income Data Table" class="table">
+  <tr>
+    <th class="th">#</th>
+    <th class="th">id</th>
+    <th class="th">Amount</th>
+    <th class="th">Date</th>
+  </tr>
+  <tr th:each="income : ${key_income_list}">
+    <td class="td" th:text="${incomeStat.index+1}"></td>
+    <td class="td" th:text="${income.id}"></td>
+    <td class="td" th:text="${income.amount}"></td>
+    <td class="td" th:text="${income.date}"></td>
+</table>
+  </tr>
+</body>
+</html>
