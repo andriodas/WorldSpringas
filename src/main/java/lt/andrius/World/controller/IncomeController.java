@@ -5,10 +5,9 @@ import lt.andrius.World.service.IncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller //https://localhost:8080/
@@ -38,5 +37,23 @@ public class IncomeController {
         List<Income> incomeList = incomeService.getAllIncome();
         model.addAttribute("key_income_list", incomeList);
         return "/income/incomes_th";
+    }
+
+    // http://localhost:8080/incomemapping/incomes/getandpost
+    // /incomemapping/incomes/getandpost
+    @RequestMapping(value = "/incomes/getandpost", method = RequestMethod.GET)
+    public String getIncomeById(Model model) {
+        model.addAttribute("key_income", new Income());
+        model.addAttribute("key_income_listas", Collections.emptyList());
+        return "post_get_incomes_th";
+    }
+
+    // incomemapping/incomes/getandpost
+    @RequestMapping(value = "/incomes/getandpost", method = RequestMethod.POST)
+    public String postIncomeId(Model model, @ModelAttribute(value = "key_income") Income income) {
+        model.addAttribute("key_income", new Income());
+        List<Income> incomes = (List<Income>) incomeService.getIncomeById(Integer.valueOf("%" + income.getId() + "%"));
+        model.addAttribute("key_income_listas", incomes);
+        return "post_get_incomes_th";
     }
 }
