@@ -21,11 +21,11 @@
         <th class="th">Date</th>
     </tr>
 
-<!--    <tr th:if="${key_income_details.id.isEmpty}">-->
-<!--        <td colspan="5">No Records found. Add some...!</td>-->
-<!--    </tr>-->
+    <tr th:if="${key_income_details.id == null}">
+        <td colspan="5">No Records found. Add some...!</td>
+    </tr>
 
-    <tr>
+    <tr th:unless="${key_income_details.id == null}">
         <td class="td" th:text="${key_income_details.id}"></td>
         <td class="td" th:text="${key_income_details.amount}"></td>
         <td class="td" th:text="${key_income_details.date}"></td>
