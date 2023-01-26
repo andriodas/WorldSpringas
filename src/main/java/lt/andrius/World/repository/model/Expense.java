@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.xml.transform.sax.SAXResult;
-import java.sql.Date;
 @Entity
 @Table(name = "expense")
 @Getter
