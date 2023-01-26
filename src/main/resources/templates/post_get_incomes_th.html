@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form action="#" th:action="@{/template/post_get_incomes_th}" th:object="${key_income}" method="post">
+<form action="#" th:action="@{/incomemapping/incomes/getandpost}" th:object="${key_income}" method="post">
     <label>Income Id</label>
-    <input type="text" th:field="${key_income}" id="id"/>
+    <input type="text" th:field="${key_income.id}" id="id"/>
     <input type="submit" value="Submit" />
     <input type="submit" value="Clear" onclick="document.getIncomeById('id').value = ''"/>
 </form>
@@ -21,14 +21,14 @@
         <th class="th">Date</th>
     </tr>
 
-    <tr th:if="${#lists.isEmpty(key_income_listas)}">
-        <td colspan="5">No Records found. Add some...!</td>
-    </tr>
+<!--    <tr th:if="${key_income_details.id.isEmpty}">-->
+<!--        <td colspan="5">No Records found. Add some...!</td>-->
+<!--    </tr>-->
 
-    <tr th:each="income : ${key_income_listas}">
-        <td class="td" th:text="${income.id}"></td>
-        <td class="td" th:text="${income.amount}"></td>
-        <td class="td" th:text="${income.date}"></td>
+    <tr>
+        <td class="td" th:text="${key_income_details.id}"></td>
+        <td class="td" th:text="${key_income_details.amount}"></td>
+        <td class="td" th:text="${key_income_details.date}"></td>
     </tr>
 </table>
 

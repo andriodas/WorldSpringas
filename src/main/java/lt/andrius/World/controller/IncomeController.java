@@ -43,17 +43,18 @@ public class IncomeController {
     // /incomemapping/incomes/getandpost
     @RequestMapping(value = "/incomes/getandpost", method = RequestMethod.GET)
     public String getIncomeById(Model model) {
+
         model.addAttribute("key_income", new Income());
-        model.addAttribute("key_income_listas", Collections.emptyList());
+        model.addAttribute("key_income_details", new Income());
         return "post_get_incomes_th";
     }
 
     // incomemapping/incomes/getandpost
     @RequestMapping(value = "/incomes/getandpost", method = RequestMethod.POST)
     public String postIncomeId(Model model, @ModelAttribute(value = "key_income") Income income) {
-        model.addAttribute("key_income", new Income());
-        List<Income> incomes = (List<Income>) incomeService.getIncomeById(Integer.valueOf("%" + income.getId() + "%"));
-        model.addAttribute("key_income_listas", incomes);
+
+        Income incomeDetails = incomeService.getIncomeById(income.getId());
+        model.addAttribute("key_income_details", incomeDetails);
         return "post_get_incomes_th";
     }
 }
