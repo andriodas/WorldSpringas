@@ -18,5 +18,7 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("\n==================\n");
         System.out.println(incomeRepository.findById(1));
 
+
+
     }
 }
