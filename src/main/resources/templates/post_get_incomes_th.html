@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/template/post_get_incomes_th}" th:object="${key_income}" method="post">
+    <label>Income Id</label>
+    <input type="text" th:field="${key_income}" id="id"/>
+    <input type="submit" value="Submit" />
+    <input type="submit" value="Clear" onclick="document.getIncomeById('id').value = ''"/>
+</form>
+<br>
+
+<table>
+    <tr>
+        <th class="th">Id</th>
+        <th class="th">Amount &euro;</th>
+        <th class="th">Date</th>
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(key_income_listas)}">
+        <td colspan="5">No Records found. Add some...!</td>
+    </tr>
+
+    <tr th:each="income : ${key_income_listas}">
+        <td class="td" th:text="${income.id}"></td>
+        <td class="td" th:text="${income.amount}"></td>
+        <td class="td" th:text="${income.date}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
