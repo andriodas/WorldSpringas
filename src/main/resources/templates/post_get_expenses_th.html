@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form action="#" th:action="@{/incomemapping/incomes/getandpost}" th:object="${key_income}" method="post">
-    <label>Income Id</label>
-    <input type="text" th:field="${key_income.id}" id="id"/>
+<form action="#" th:action="@{/expensemapping/expenses/getandpost}" th:object="${key_expense}" method="post">
+    <label>Expense Id</label>
+    <input type="text" th:field="${key_expense.id}" id="id"/>
     <input type="submit" value="Submit" />
     <input type="submit" value="Clear" onclick="document.getElementById('id').value = ''"/>
 </form>
@@ -21,14 +21,14 @@
         <th class="th">Date</th>
     </tr>
 
-    <tr th:if="${key_income_details.id == null}">
+    <tr th:if="${key_expense_details.id == null}">
         <td colspan="5">No Records found. Add some...!</td>
     </tr>
 
     <tr>
-        <td class="td" th:text="${key_income_details.id}"></td>
-        <td class="td" th:text="${key_income_details.amount}"></td>
-        <td class="td" th:text="${key_income_details.date}"></td>
+        <td class="td" th:text="${key_expense_details.id}"></td>
+        <td class="td" th:text="${key_expense_details.amount}"></td>
+        <td class="td" th:text="${key_expense_details.date}"></td>
     </tr>
 </table>
 

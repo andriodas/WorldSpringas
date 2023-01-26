@@ -11,17 +11,17 @@
 </head>
 
 <body>
-<h1 style="color:blue;">Welcome to Income</h1>
-<table id="incomeDataTable" class="table">
+<h1 style="color:blue;">Welcome to Expense</h1>
+<table id="expenseDataTable" class="table">
     <tr>
         <th class="th">Id</th>
         <th class="th">Amount &euro;</th>
         <th class="th">Date</th>
     </tr>
-    <tr th:each="income : ${key_income_list}">
-        <td class="td" th:text="${income.id}"></td>
-        <td class="td" th:text="${income.amount}"></td>
-        <td class="td" th:text="${income.date}"></td>
+    <tr th:each="expense : ${key_expense_list}">
+        <td class="td" th:text="${expense.id}"></td>
+        <td class="td" th:text="${expense.amount}"></td>
+        <td class="td" th:text="${expense.date}"></td>
     </tr>
 </table>
 

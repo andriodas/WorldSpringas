@@ -3,11 +3,12 @@ package lt.andrius.World.controller;
 import lt.andrius.World.repository.model.Income;
 import lt.andrius.World.service.IncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @Controller //https://localhost:8080/
@@ -43,17 +44,27 @@ public class IncomeController {
     // /incomemapping/incomes/getandpost
     @RequestMapping(value = "/incomes/getandpost", method = RequestMethod.GET)
     public String getIncomeById(Model model) {
+
         model.addAttribute("key_income", new Income());
-        model.addAttribute("key_income_listas", Collections.emptyList());
+        model.addAttribute("key_income_details", new Income());
         return "post_get_incomes_th";
     }
 
     // incomemapping/incomes/getandpost
     @RequestMapping(value = "/incomes/getandpost", method = RequestMethod.POST)
-    public String postIncomeId(Model model, @ModelAttribute(value = "key_income") Income income) {
-        model.addAttribute("key_income", new Income());
-        List<Income> incomes = (List<Income>) incomeService.getIncomeById(Integer.valueOf("%" + income.getId() + "%"));
-        model.addAttribute("key_income_listas", incomes);
+    public String postIncomeId(Model model, @ModelAttribute(value = "key_income") Income income, BindingResult result) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("key_income_details", new Income());
+        }
+
+        try {
+            Income incomeDetails = incomeService.getIncomeById(income.getId());
+            model.addAttribute("key_income_details", incomeDetails);
+        } catch (InvalidDataAccessApiUsageException e) {
+            model.addAttribute("key_income_details", new Income());
+        }
+
         return "post_get_incomes_th";
     }
 }

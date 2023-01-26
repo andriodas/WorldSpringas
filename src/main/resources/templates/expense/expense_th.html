@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/expense/basic.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/expense/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/styles/expense/basic.css"/>
+    <link rel="stylesheet" href="/static/styles/expense/index.css"/>
+</head>
+<body>
+<h1 style="color:blue;">Welcome to Expense</h1>
+<div class="expense" th:object="${key_expense}">
+    <div class="label"><p>id: </p></div>
+    <div class="expense-data">
+        <p th:text="${key_expense.id}"> Some text here</p>
+    </div>
+    <div class="label"><p>Amount: </p></div>
+    <div class="expense-data">
+        <p th:text="${key_expense.amount}"> Some text here</p>
+    </div>
+    <div class="label"><p>Date: </p></div>
+    <div class="expense-data">
+        <p th:text="${key_expense.date}"> Some text here</p>
+</div>
+</body>
+</html>

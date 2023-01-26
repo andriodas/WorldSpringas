@@ -16,10 +16,16 @@ public class ExpenseService {
         return (List<Expense>) expenseRepository.findAll();
 
     }
-
     public Expense getExpenseById(Integer expenseId) {
-
         return expenseRepository.findById(expenseId).get();
+    }
+
+    public Expense getExpenseByAmount(double amount) {
+        return expenseRepository.findByAmount(amount).get();
+
+    }
+    public List<Expense> getExpenseByDate(String date) {
+        return (List<Expense>) expenseRepository.findByDate(date);
     }
 
 }
