@@ -1,15 +1,14 @@
 package lt.andrius.World.repository;
 
 import lt.andrius.World.repository.model.Expense;
-import lt.andrius.World.repository.model.Income;
+import org.apache.el.stream.Optional;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
+public interface ExpenseRepository extends CrudRepository<Expense, Integer> {
 
-public class ExpenseRepository {
+    Optional<Expense> findByExpenseId(int id);
 
-    Optional<Expense> findById(int id);
+    Optional<Expense> findByExpenseAmount(double amount);
 
-    Optional<Expense> findByAmount(double amount);
-
-    Iterable<Expense> findByDate(String date);
+    Iterable<Expense> findByExpenseDate(String date);
 }
